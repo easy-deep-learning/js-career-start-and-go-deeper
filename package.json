@@ -1,18 +1,18 @@
 {
-  "name": "shower",
-  "description": "Shower HTML presentation engine",
-  "version": "2.2.0",
+  "name": "js-career-start-and-go-deeper-presentation",
+  "description": "js career: how to start and go deeper presentation",
+  "version": "2.0.0",
   "author": {
-    "name": "Vadim Makeev",
-    "url": "http://pepelsbey.net/"
+    "name": "Easy Deep Learning",
+    "url": "https://github.com/easy-deep-learning"
   },
-  "homepage": "https://github.com/shower/shower",
+  "homepage": "http://github.com/easy-deep-learning/js-career-start-and-go-deeper",
   "repository": {
     "type": "git",
-    "url": "git://github.com/shower/shower.git"
+    "url": "git://github.com/easy-deep-learning/js-career-start-and-go-deeper.git"
   },
   "bugs": {
-    "url": "http://github.com/shower/shower/issues"
+    "url": "http://github.com/easy-deep-learning/js-career-start-and-go-deeper/issues"
   },
   "license": "MIT",
   "keywords": [
@@ -27,29 +27,20 @@
     "README.md"
   ],
   "dependencies": {
+    "@shower/core": "^3.3.0",
     "@shower/material": "^2.5.0",
-    "@shower/ribbon": "^3.5.0",
-    "shower-core": "^2.1.0"
+    "@shower/ribbon": "^3.5.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.27.10",
-    "del": "^7.0.0",
-    "fs": "0.0.1-security",
-    "gulp": "^4.0.2",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.1.3",
-    "gulp-rsync": "0.0.9",
-    "gulp-zip": "^5.1.0",
-    "merge-stream": "^2.0.0",
-    "path-exists-cli": "^2.0.0",
-    "run-sequence": "^2.2.1",
-    "shower-core": "^2.0.8"
+    "@shower/cli": "^0.3.1",
+    "path-exists-cli": "^2.0.0"
   },
   "scripts": {
-    "prepare": "gulp prepare",
-    "archive": "gulp archive",
-    "publish": "gulp publish",
-    "test": "npm run prepare && ls prepared && npm run archive && path-exists archive.zip"
+    "pdf": "shower pdf",
+    "start": "shower serve",
+    "bundle": "shower bundle --files '**' --files '!{docs,node_modules,bundled}{,/**}' --files '!*.{md,toml,json}'",
+    "archive": "shower archive --files '**' --files '!{docs,node_modules,bundled}{,/**}' --files '!*.{md,toml,json}'",
+    "publish": "shower publish --files '**' --files '!{docs,node_modules,bundled}{,/**}' --files '!*.{md,toml,json}'",
+    "test": "npm run bundle && ls bundled && npm run archive && path-exists presentation.zip"
   }
 }
